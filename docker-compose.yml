@@ -1,0 +1,24 @@
+version: '3'
+services:
+  percona-server:
+    container_name: "mysql"
+    image: percona/percona-server:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 00#Abc#123
+    ports:
+      - "3306:3306"
+    volumes:
+      # create volumes for use
+      - /opt/mysql-redis/mysql/data:/var/lib/mysql
+      # bind mount my local my.cnf
+      - /opt/mysql-redis/mysql/my.cnf:/etc/my.cnf
+  redis-server:
+    container_name: "redis"
+    image: redis:6.2
+    restart: always
+    command: [ "redis-server", "/etc/redis.conf" ]
+    ports:
+      - "6379:6379"
+    volumes:
+      - /opt/mysql-redis/redis/redis.conf:/etc/redis.conf
