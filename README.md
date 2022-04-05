@@ -23,6 +23,7 @@ redis 的初始密码在```redis/redis.conf```文件中```requirepass``` 定义
 
 # 备份
 
+mysql/backup.sh 只做全量备份，同时只保留一天的备份集，如果需要更多的备份集，请自行修改脚本。
 ```
 /opt/mysql-redis/mysql/backup.sh
 ```
