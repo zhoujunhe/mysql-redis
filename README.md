@@ -26,7 +26,7 @@ redis 的初始密码在```redis/redis.conf```文件中```requirepass``` 定义
 ```
 /opt/mysql-redis/mysql/backup.sh
 ```
-或者直接加入定时备分任务，比如每天4点做便量压缩备份
+或者直接加入定时备分任务，比如每天4点做全量压缩备份
 ```
 crontab -e
 0 4 * * * /opt/mysql-redis/mysql/backup.sh
