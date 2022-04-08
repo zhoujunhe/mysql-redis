@@ -13,6 +13,7 @@ services:
       - /opt/mysql-redis/mysql/data:/var/lib/mysql
       # bind mount my local my.cnf
       - /opt/mysql-redis/mysql/my.cnf:/etc/my.cnf
+      - /opt/mysql-redis/mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
   redis-server:
     container_name: "redis"
     image: redis:6.2
