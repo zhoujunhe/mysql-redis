@@ -10,10 +10,10 @@ services:
       - "3306:3306"
     volumes:
       # create volumes for use
-      - /opt/mysql-redis/mysql/data:/var/lib/mysql
+      - ./mysql/data:/var/lib/mysql
       # bind mount my local my.cnf
-      - /opt/mysql-redis/mysql/my.cnf:/etc/my.cnf
-      - /opt/mysql-redis/mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./mysql/my.cnf:/etc/my.cnf
+      - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
   redis-server:
     container_name: "redis"
     image: redis:6.2
@@ -22,4 +22,4 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - /opt/mysql-redis/redis/redis.conf:/etc/redis.conf
+      - ./redis/redis.conf:/etc/redis.conf
